@@ -28,11 +28,13 @@ After loading the vectors, in the interpreter run:
 [(1, 0.4193291853533418, 'fish'), (1, 0.39795848701311254, 'pants'), (1, 0.36527604354032905, 'horse'), (1, 0.2623782121711276, 'tooth'), (1, 0.22965112665806223, 'nurse'), (1, 0.2055846539312118, 'roulette')]
 ```
 
+In the output for `expected`, the middle value roughly corresponds to the strength of relation. Technically, it is the cosine similarity between the two word vectors, with higher values implying more association and 0 implying independence.
+
 To investigate the other options and word associations:
 
 ```
 >>> clues[N][0] // (word, N) is the clue
->>> clues[N][3] // These are the words that were determined to be related. The middle value roughly corresponds to the strength of relation (from -1 to 1).
+>>> clues[N][3] // Same output format as expected
 ```
 
 To regenerate a new word list and reassign spies (optional fixed words [w] and assignments [r]):
@@ -49,11 +51,10 @@ To regenerate a new word list and reassign spies (optional fixed words [w] and a
 
 These values are still arbitrary but they could be useful later.
 
-|-----|------|
+
 |Value | Role|
 |------|-----|
 |1     |Your team|
 |-1    |Innocent|
 |-3    |Other team|
 |-10   |Assassin|
-|-----|------|
